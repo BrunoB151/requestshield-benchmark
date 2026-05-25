@@ -44,6 +44,7 @@ const RPS_SHARE = parseInt(__ENV.BENCH_RPS_SHARE || "100", 10);
 const TARGET = __ENV.BENCH_TARGET || "http://localhost:8000/api/v1/analyze";
 const HOST = __ENV.BENCH_HOST || "localhost";
 const SEED = parseInt(__ENV.BENCH_SEED || "42", 10);
+const API_KEY = __ENV.BENCH_API_KEY || "";
 const BURST_POOL_SIZE = parseInt(__ENV.BENCH_BURST_POOL_SIZE || "500", 10);
 const BURST_ROTATE_MIN = parseFloat(__ENV.BENCH_BURST_ROTATE_MIN || "5"); // 0 = no rotation
 const CACHE_TRIM_AT = parseInt(__ENV.BENCH_CACHE_TRIM_AT || "200000", 10);
@@ -197,11 +198,14 @@ export default function () {
     host: HOST,
   });
 
+  const headers = {
+    "Content-Type": "application/json",
+    "X-Request-ID": `bench-${__VU}-${__ITER}`,
+  };
+  if (API_KEY) headers["X-API-Key"] = API_KEY;
+
   const res = http.post(TARGET, JSON.stringify(body), {
-    headers: {
-      "Content-Type": "application/json",
-      "X-Request-ID": `bench-${__VU}-${__ITER}`,
-    },
+    headers: headers,
     tags: { endpoint: "/api/v1/analyze" },
   });
 

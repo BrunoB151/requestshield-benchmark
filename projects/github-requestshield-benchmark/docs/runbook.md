@@ -41,10 +41,14 @@ Ce runbook décrit la procédure complète : préparation, spawn de la flotte de
 cd infra/terraform
 cp terraform.tfvars.example terraform.tfvars
 # Remplir os_*, ssh_public_key, bench_target_url, bench_host_header
+# Si l'endpoint /analyze cible exige X-API-Key, renseigner aussi bench_api_key
+# (valeur présente dans RSEDGE_API_KEYS côté API).
 terraform init
 terraform plan -out plan.bin
 terraform apply plan.bin
 ```
+
+`bench_api_key` est propagée jusqu'à `/etc/rsedge-bench/env` (perms 0600) sur chaque générateur, lue par k6 via `BENCH_API_KEY` et envoyée en header `X-API-Key`. Laisser vide si la cible accepte les requêtes non authentifiées.
 
 À la fin, récupérer les sorties :
 
