@@ -1,0 +1,27 @@
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+crash.*.log
+
+# k6
+*.k6_results
+results/
+*.csv
+*.json.out
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# OS / editors
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/

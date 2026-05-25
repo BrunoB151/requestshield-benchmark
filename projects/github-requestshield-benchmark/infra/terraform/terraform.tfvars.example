@@ -1,0 +1,25 @@
+# Copy to terraform.tfvars and fill. NEVER commit terraform.tfvars (it is in .gitignore).
+
+# --- OVH Public Cloud credentials --------------------------------------------
+# Create via: openstack application credential create rsedge-bench
+os_region     = "GRA11"
+os_project_id = "REPLACE_ME"
+os_user_name  = "REPLACE_ME"
+os_password   = "REPLACE_ME"
+
+# --- Fleet sizing ------------------------------------------------------------
+generator_count    = 12
+generator_flavor   = "b2-15"
+coordinator_flavor = "s1-2"
+image_name         = "Debian 12"
+
+ssh_public_key = "ssh-ed25519 AAAA... your_pubkey_here"
+
+# --- Benchmark target --------------------------------------------------------
+bench_target_url  = "https://api.preprod-XX.requestshield.ovh/api/v1/analyze"
+bench_host_header = "api.preprod-XX.requestshield.ovh"
+bench_seed        = 42
+
+# --- Source for the k6 script (cloned by cloud-init on each generator) -------
+benchmark_repo     = "https://stash.ovh.net/scm/~bruno.bontemps/requestshield-benchmark.git"
+benchmark_repo_ref = "dev/bbontemp/init-benchmark"

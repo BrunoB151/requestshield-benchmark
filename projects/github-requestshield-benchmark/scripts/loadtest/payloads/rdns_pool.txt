@@ -1,0 +1,92 @@
+# IPs with stable, well-known reverse DNS records.
+#
+# Used to feed the rdns model — random synthetic IPs have no PTR so the model
+# can't discriminate. This pool injects IPs whose PTR is known and varied:
+# datacenter / bot / search engine ranges.
+#
+# Format: one IP per line. Comments start with '#'.
+# These are real, publicly-known IPs (no spoofing — just IPs the model would
+# see in the wild). The Engine's rdns model does its own PTR lookup, so we
+# don't ship PTRs here; we just give it IPs that *have* one.
+
+# --- Google ---
+# Googlebot crawl ranges
+66.249.66.1
+66.249.66.10
+66.249.79.40
+66.249.79.41
+66.249.64.20
+# Google DNS
+8.8.8.8
+8.8.4.4
+# GCP load balancer fronts
+34.96.44.10
+35.190.40.10
+
+# --- Cloudflare ---
+1.1.1.1
+1.0.0.1
+104.16.0.10
+104.17.0.10
+172.67.0.10
+108.162.192.10
+
+# --- Amazon AWS ---
+# AWS EC2 us-east-1
+54.239.16.10
+3.5.140.10
+52.84.150.10
+# Amazonbot
+54.249.61.1
+
+# --- Microsoft ---
+# Bingbot
+40.77.167.10
+207.46.13.10
+# Azure
+20.36.40.10
+13.107.42.10
+
+# --- Quad9 / OpenDNS ---
+9.9.9.9
+149.112.112.112
+208.67.222.222
+208.67.220.220
+
+# --- Yandex ---
+77.88.5.10
+5.255.250.10
+
+# --- Baidu ---
+180.76.15.10
+220.181.108.10
+
+# --- Apple ---
+17.58.97.10
+17.142.160.10
+
+# --- Facebook / Meta crawlers ---
+69.171.224.10
+31.13.64.10
+2a03:2880:f000::1
+
+# --- DigitalOcean / Linode / Hetzner datacenter ---
+167.71.0.10
+104.131.0.10
+139.59.0.10
+139.59.128.10
+95.217.0.10
+176.9.0.10
+116.202.0.10
+
+# --- OVH datacenter ---
+51.38.0.10
+51.75.0.10
+51.83.0.10
+148.113.0.10
+54.36.0.10
+
+# --- Tor exit nodes (a few stable) ---
+185.220.101.10
+185.220.102.10
+204.85.191.10

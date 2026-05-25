@@ -1,0 +1,105 @@
+# Residential IPv4 ranges (CIDR) used to seed the residential_proxy model
+# with IPs that look like real eyeball traffic.
+#
+# Format: one CIDR per line. Lines starting with '#' are comments.
+# Sourced from public ASN/ISP allocations (RIPE/ARIN/APNIC delegated stats).
+# Not exhaustive; representative sample for major ISPs likely to appear
+# in production traffic seen by RequestShield Edge.
+#
+# Update with: scripts/setup/refresh_residential_ranges.sh (TODO)
+
+# --- France ---
+# Orange / Wanadoo
+90.0.0.0/9
+86.192.0.0/10
+81.48.0.0/12
+83.112.0.0/12
+2.0.0.0/12
+92.128.0.0/11
+# Free SAS (residential)
+78.192.0.0/10
+82.224.0.0/12
+88.160.0.0/11
+176.128.0.0/10
+# Free Mobile
+37.160.0.0/13
+77.128.0.0/9
+# SFR / Numericable
+80.10.0.0/16
+86.64.0.0/11
+83.192.0.0/10
+176.160.0.0/12
+# Bouygues Telecom
+176.128.0.0/12
+176.144.0.0/12
+89.84.0.0/14
+
+# --- Germany ---
+# Deutsche Telekom
+79.192.0.0/10
+93.192.0.0/10
+217.224.0.0/11
+# Vodafone DE / Kabel Deutschland
+77.0.0.0/10
+2.240.0.0/12
+
+# --- UK ---
+# BT Broadband
+86.128.0.0/10
+81.96.0.0/11
+# Virgin Media UK
+81.96.0.0/11
+86.0.0.0/11
+
+# --- Spain ---
+# Telefonica / Movistar
+83.32.0.0/11
+80.24.0.0/13
+88.0.0.0/11
+
+# --- Italy ---
+# TIM / Telecom Italia
+79.0.0.0/10
+2.224.0.0/12
+# Vodafone Italia
+2.32.0.0/12
+
+# --- Netherlands ---
+# KPN
+77.160.0.0/12
+84.24.0.0/13
+# Ziggo
+84.105.0.0/16
+
+# --- US ---
+# Comcast residential
+73.0.0.0/8
+71.192.0.0/12
+98.192.0.0/10
+24.0.0.0/12
+# AT&T residential / U-verse
+99.0.0.0/10
+108.192.0.0/10
+75.0.0.0/11
+# Verizon FiOS
+71.96.0.0/11
+108.0.0.0/10
+# Spectrum / Charter
+71.64.0.0/11
+70.112.0.0/12
+
+# --- Canada ---
+# Rogers / Bell / Telus
+99.224.0.0/11
+67.68.0.0/14
+
+# --- Asia / mobile-heavy ---
+# NTT / Japan residential
+122.196.0.0/14
+153.128.0.0/10
+# Korea Telecom / SK
+1.176.0.0/13
+59.0.0.0/13
+# China Telecom
+116.16.0.0/12
+171.8.0.0/13
